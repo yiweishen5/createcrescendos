@@ -6,7 +6,7 @@ window.onload = () => {
 
     for(let i = 0; i < numMentors; ++i){
         const mentor = JSON.parse(sessionStorage.getItem(`mentor${i}`));
-       
+        
         const nameText = document.createTextNode(mentor.name);
         const name = document.createElement('p');
         name.appendChild(nameText);
@@ -21,6 +21,9 @@ window.onload = () => {
 
         const instruments = document.createElement('ul');
         const teaches = document.createElement('ul');
+
+        const button = document.createElement('button');
+        button.innerHTML = `Connect with ${mentor.name}`;
 
         for(let i = 0; i < mentor.instruments.length; ++i){
             const instrumentText = document.createTextNode(mentor.instruments[i]);
@@ -46,6 +49,7 @@ window.onload = () => {
         mentorCard.appendChild(bio);
         mentorCard.appendChild(instruments);
         mentorCard.appendChild(teaches);
+        mentorCard.appendChild(button);
 
         console.log(bio);
 

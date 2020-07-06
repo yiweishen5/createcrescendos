@@ -7,15 +7,10 @@ const sessionStorage = window.sessionStorage;
 let mentors = [
     {
         name: 'Rbeca Collins',
-        picSrc: 'rebca collins pic',
+        picSrc: './assets/images/RbecaCollins.jpg',
         bio: 'rbeca colins bio',
         instruments: ['clarinet', 'french horn'],
         teaches: ['online lessons', 'general advice']
-    },
-    {
-        name: 'Tyler J',
-        instruments: ['bass clarinet', 'trumpet'],
-        teaches: ['audio recording reviews']
     }
 ];
 
