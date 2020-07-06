@@ -2,16 +2,20 @@ let studentForm = document.querySelector('#studentForm');
 let instrumentInput = document.querySelector('#instrumentInput').options;
 let purposeInput = document.querySelector('#purposeInput').options;
 
+const sessionStorage = window.sessionStorage;
+
 let mentors = [
     {
         name: 'Rbeca Collins',
+        picSrc: 'rebca collins pic',
+        bio: 'rbeca colins bio',
         instruments: ['clarinet', 'french horn'],
-        type: ['online lessons', 'general advice']
+        teaches: ['online lessons', 'general advice']
     },
     {
         name: 'Tyler J',
         instruments: ['bass clarinet', 'trumpet'],
-        type: ['audio recording reviews']
+        teaches: ['audio recording reviews']
     }
 ];
 
@@ -44,9 +48,9 @@ studentForm.addEventListener('submit', (e) => {
             continue;
         }
 
-        // checks if mentor's type array contains the purpose of the student input
-        for(let j = 0; j < mentor.type.length; ++j){
-            if(purpose === mentor.type[j]){
+        // checks if mentor's teaching types array contains the purpose of the student input
+        for(let j = 0; j < mentor.teaches.length; ++j){
+            if(purpose === mentor.teaches[j]){
                 match = true;
                 break;
             }
@@ -60,17 +64,13 @@ studentForm.addEventListener('submit', (e) => {
         mentorMatches.push(mentor);     
     }
 
-    mentorMatches.forEach((mentor) => {
-        let mentorCard = document.createElement('p');
-        let nameText = document.createTextNode(mentor.name);
-        mentorCard.className = 'mentor';
-        
-        mentorCard.appendChild(nameText);
-
-        document.body.appendChild(nameText);
+    sessionStorage.setItem('numMentors', mentorMatches.length);
+    mentorMatches.forEach((mentor, index) => {
+        // console.log(index);
+        // console.log(JSON.stringify(mentor));
+        sessionStorage.setItem(`mentor${index}`, JSON.stringify(mentor));
     });
 
-
-    console.log(document.body);
+    window.location.href = './matchedMentors.html';
 });
 
