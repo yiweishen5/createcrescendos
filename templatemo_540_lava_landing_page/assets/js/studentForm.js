@@ -75,8 +75,10 @@ studentForm.addEventListener('submit', (e) => {
         const instruments = document.createElement('ul');
         const teaches = document.createElement('ul');
 
-        const button = document.createElement('button');
+        const button = document.createElement('a');
         button.innerHTML = `Connect with ${mentor.name}`;
+        button.setAttribute('href', './connecttomentor.html');
+
 
         for(let i = 0; i < mentor.instruments.length; ++i){
             const instrumentText = document.createTextNode(mentor.instruments[i]);
