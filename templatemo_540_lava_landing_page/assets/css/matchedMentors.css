@@ -1,0 +1,16 @@
+body{
+    text-align: center;
+}
+
+.cardContainer{
+}
+
+.mentorCard {
+    width: 20rem;
+    margin: 2rem;
+    display: inline-block;
+}
+
+.mentorCard p{
+    text-align: left;
+}

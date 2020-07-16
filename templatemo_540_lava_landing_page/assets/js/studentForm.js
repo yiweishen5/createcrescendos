@@ -2,11 +2,13 @@ let studentForm = document.querySelector('#studentForm');
 let instrumentInput = document.querySelector('#instrumentInput').options;
 let purposeInput = document.querySelector('#purposeInput').options;
 
+const sessionStorage = window.sessionStorage;
+
 let mentors = [
     {
         name: 'Rbeca Collins',
         picSrc: './assets/images/RbecaCollins.jpg',
-        bio: 'rbeca colins bio',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
         instruments: ['clarinet', 'french horn'],
         teaches: ['online lessons', 'general advice']
     }
@@ -57,36 +59,17 @@ studentForm.addEventListener('submit', (e) => {
         mentorMatches.push(mentor);     
     }
 
+    sessionStorage.setItem('numMentors', 4);
     mentorMatches.forEach((mentor, index) => {
         // console.log(index);
-         
-        const nameText = document.createTextNode(mentor.name);
-        const name = document.createElement('p');
-        name.appendChild(nameText);
-
-        const pic = document.createElement('img');
-        pic.src = mentor.picSrc;
-        pic.alt = mentor.name;
-
-        const bioText = document.createTextNode(mentor.bio);
-        const bio = document.createElement('p');
-        bio.appendChild(bioText);
-
-        const button = document.createElement('a');
-        button.innerHTML = `Connect with ${mentor.name}`;
-        button.setAttribute('href', './connecttomentor.html');
-
-        let mentorCard = document.createElement('div');
-        mentorCard.className = 'mentorCard';
-
-        mentorCard.appendChild(name);
-        mentorCard.appendChild(pic);
-        mentorCard.appendChild(bio);
-        mentorCard.appendChild(button);
-
-        console.log(bio);
-
-        document.body.appendChild(mentorCard);
+        // console.log(JSON.stringify(mentor));
+        for(let i = 0; i < 4; ++i){
+            sessionStorage.setItem(`mentor${i}`, JSON.stringify(mentor));
+        }
+        
     });
-});
 
+    
+
+    window.location.href = './matchedMentors.html';
+});
