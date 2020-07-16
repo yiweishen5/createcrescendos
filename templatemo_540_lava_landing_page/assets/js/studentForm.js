@@ -61,9 +61,8 @@ studentForm.addEventListener('submit', (e) => {
         // console.log(index);
          
         const nameText = document.createTextNode(mentor.name);
-        const name = document.createElement('h1');
+        const name = document.createElement('p');
         name.appendChild(nameText);
-        name.className = 'name';
 
         const pic = document.createElement('img');
         pic.src = mentor.picSrc;
@@ -72,12 +71,10 @@ studentForm.addEventListener('submit', (e) => {
         const bioText = document.createTextNode(mentor.bio);
         const bio = document.createElement('p');
         bio.appendChild(bioText);
-        bio.className = 'bio';
 
         const button = document.createElement('a');
         button.innerHTML = `Connect with ${mentor.name}`;
         button.setAttribute('href', './connecttomentor.html');
-        button.className = 'connect'
 
         let mentorCard = document.createElement('div');
         mentorCard.className = 'mentorCard';
