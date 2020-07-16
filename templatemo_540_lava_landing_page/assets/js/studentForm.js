@@ -72,29 +72,9 @@ studentForm.addEventListener('submit', (e) => {
         const bio = document.createElement('p');
         bio.appendChild(bioText);
 
-        const instruments = document.createElement('ul');
-        const teaches = document.createElement('ul');
-
         const button = document.createElement('a');
         button.innerHTML = `Connect with ${mentor.name}`;
         button.setAttribute('href', './connecttomentor.html');
-
-
-        for(let i = 0; i < mentor.instruments.length; ++i){
-            const instrumentText = document.createTextNode(mentor.instruments[i]);
-            const instrument = document.createElement('li');
-            instrument.appendChild(instrumentText);
-            
-            instruments.appendChild(instrument);
-        }
-
-        for(let i = 0; i < mentor.teaches.length; ++i){
-            const teachText = document.createTextNode(mentor.teaches[i]);
-            const teach = document.createElement('li');
-            teach.appendChild(teachText);
-
-            teaches.appendChild(teach);
-        }
 
         let mentorCard = document.createElement('div');
         mentorCard.className = 'mentorCard';
@@ -102,8 +82,6 @@ studentForm.addEventListener('submit', (e) => {
         mentorCard.appendChild(name);
         mentorCard.appendChild(pic);
         mentorCard.appendChild(bio);
-        mentorCard.appendChild(instruments);
-        mentorCard.appendChild(teaches);
         mentorCard.appendChild(button);
 
         console.log(bio);
