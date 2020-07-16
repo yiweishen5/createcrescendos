@@ -59,13 +59,11 @@ studentForm.addEventListener('submit', (e) => {
         mentorMatches.push(mentor);     
     }
 
-    sessionStorage.setItem('numMentors', 4);
+    sessionStorage.setItem('numMentors', mentorMatches.length);
     mentorMatches.forEach((mentor, index) => {
         // console.log(index);
         // console.log(JSON.stringify(mentor));
-        for(let i = 0; i < 4; ++i){
-            sessionStorage.setItem(`mentor${i}`, JSON.stringify(mentor));
-        }
+        sessionStorage.setItem(`mentor${index}`, JSON.stringify(mentor));
         
     });
 
