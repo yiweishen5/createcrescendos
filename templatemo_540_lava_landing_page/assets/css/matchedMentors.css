@@ -5,12 +5,24 @@ body{
 .cardContainer{
 }
 
-.mentorCard {
-    width: 20rem;
-    margin: 2rem;
-    display: inline-block;
+.mentorCard p2{
+    text-align: center;
+    display: block; 
 }
 
+
+
+.mentorCard {
+    width: 20rem;
+    margin: 3rem;
+    display: inline-block;
+    vertical-align: top;
+}
+
+
 .mentorCard p{
-    text-align: left;
+    text-align: center;
+}
+
+
 }
