@@ -1,73 +1,52 @@
-let studentForm = document.querySelector('#studentForm');
-let instrumentInput = document.querySelector('#instrumentInput').options;
-let purposeInput = document.querySelector('#purposeInput').options;
+(function () {
+    let studentForm = document.querySelector('#studentForm');
+    let instrumentInput = document.querySelector('#instrumentInput').options;
+    let sessionTypeInput = document.querySelector('#sessionTypeInput').options;
+    let mentorReasonInput = document.querySelector('#mentorReasonInput').options;
 
-const sessionStorage = window.sessionStorage;
+    const sessionStorage = window.sessionStorage;
+    const mentors = window.mentors;
 
-let mentors = [
-    {
-        name: 'Rbeca Collins',
-        picSrc: './assets/images/RbecaCollins.jpg',
-        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        instruments: ['clarinet', 'french horn'],
-        teaches: ['online lessons', 'general advice']
-    }
-];
+    /*
+        Finds a match to a mentor(s) given the student input
+    */
+    studentForm.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-/*
-    Finds a match to a mentor(s) given the student input
-*/
-studentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // gets instrument and purpose options selected
-    let instrument = instrumentInput[instrumentInput.selectedIndex].value;
-    let purpose = purposeInput[purposeInput.selectedIndex].value;
+        // gets instrument and sessionType options selected
+        let instrument = instrumentInput[instrumentInput.selectedIndex].value;
+        let sessionType = sessionTypeInput[sessionTypeInput.selectedIndex].value;
+        let mentorReason = mentorReasonInput[mentorReasonInput.selectedIndex].value;
 
-    // array to hold mentors that matched with student input
-    let mentorMatches = [];
+        // array to hold mentors that matched with student input
+        let mentorMatches = [];
 
-    for(let i = 0; i < mentors.length; ++i){
-        let mentor = mentors[i];
-        let match = false;
-        
-        // checks if mentor's instruments array contains the instrument of the student input
-        for(let j = 0; j < mentor.instruments.length; ++j){
-            if(instrument === mentor.instruments[j]){
-                match = true;
-                break;
+        for(let i = 0; i < mentors.length; ++i){
+            let mentor = mentors[i];
+            
+            if(
+                !(
+                    mentor.instruments.includes(instrument) &&
+                    mentor.sessionTypes.includes(sessionType) &&
+                    mentor.mentorReason.includes(mentorReason)
+                )
+            ){
+                continue;
             }
+
+            // code is reached if mentor is a match, so the mentor is added to the mentorMatches array
+            mentorMatches.push(mentor);     
         }
 
-        if(!match){
-            continue;
-        }
+        sessionStorage.setItem('numMentors', mentorMatches.length);
+        mentorMatches.forEach((mentor, index) => {
+            // console.log(index);
+            console.log(mentor);
+            sessionStorage.setItem(`mentor${index}`, JSON.stringify(mentor));
+            
+        });
 
-        // checks if mentor's teaching types array contains the purpose of the student input
-        for(let j = 0; j < mentor.teaches.length; ++j){
-            if(purpose === mentor.teaches[j]){
-                match = true;
-                break;
-            }
-        }
-
-        if(!match){
-            continue;
-        }
-
-        // code is reached if mentor is a match, so the mentor is added to the mentorMatches array
-        mentorMatches.push(mentor);     
-    }
-
-    sessionStorage.setItem('numMentors', mentorMatches.length);
-    mentorMatches.forEach((mentor, index) => {
-        // console.log(index);
-        // console.log(JSON.stringify(mentor));
-        sessionStorage.setItem(`mentor${index}`, JSON.stringify(mentor));
-        
+        window.location.href = './matchedMentors.html';
     });
 
-    
-
-    window.location.href = './matchedMentors.html';
-});
+}());

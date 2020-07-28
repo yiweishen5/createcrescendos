@@ -279,7 +279,7 @@ header
 .header-area .main-nav .logo {
   line-height: 80px;
   color: #191a20;
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -723,7 +723,7 @@ welcome
     transform: none !important;
   }
 }
-@media (max-width: 810px) {
+@media (max-width: 600px) {
   .welcome-area {
     background-size: contain;
   }

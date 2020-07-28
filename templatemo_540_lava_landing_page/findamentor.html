@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -26,6 +26,8 @@
     <link rel="stylesheet" href="assets/css/findtemplatemo-lava.css">
 
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 
 </head>
 
@@ -43,21 +45,21 @@
 
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky">
+   <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a class="logo" href="createcrescendosindex.html">
+                        <a class="logo" href="index.html">
                             CreateCrescendos
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li> <a href="createcrescendosindex.html">Home</a></li>
-                            <li> <a href="createcrescendosindex.html">How it Works</a></li>
-                            <li> <a href="createcrescendosindex.html">Our Mentors</a></li>
+                            <li> <a href="index.html">Home</a></li>
+                            <li> <a href="index.html">How it Works</a></li>
+                            <li> <a href="index.html">Our Mentors</a></li>
                             <li><a href="findamentor.html"> Find a Mentor</a></li>
                             <li class="submenu">
                                 <a href="javascript:;">About</a>
@@ -94,13 +96,14 @@
         </div>
     </section>
 
+    
     <div class="studentForm">
         
         <h2>Mentor Search</h2> <br>
 
         <form id='studentForm'>
 
-            <label>What instrument do you play?</label><br>
+            <label>What instrument do you play?</label>
             <select id='instrumentInput'>
                 <option value='clarinet'>Clarinet</option>
                 <option value='bass clarinet'>Bass Clarinet</option>
@@ -127,14 +130,26 @@
 
 
 
-            <label>Why do you want a mentor?</label><br>
-            <select id='purposeInput'>
-                <option value='online lessons'>Online Lessons</option>
-                <option value='audio recording reviews'>Audio Recording Reviews</option>
-                <option value='general advice'>General Advice</option>
-            </select><br> <br> <br>
+            <label>What type of session do you want?</label>
+            <select id='sessionTypeInput'>
+                <option value='online lessons'>Online Lessons (Zoom)</option>
+                <option value='audio recording reviews'>Video Reviews (Text/Email)</option>
+                <option value='general advice'>General Advice (Text/Email)</option>
+            </select><br> <br> 
             
-            <input type='submit' class="main-button-slider"></input>
+            
+            <label>Why do you want a mentor?</label>
+            <select id='mentorReasonInput'>
+                <option value='solo/ensemble preparation'>Solo/Ensemble Preparation</option>
+                <option value='all state/all region preparation'>All State/All Region Preparation</option>
+                <option value='other audition advice'>Other Audition Advice</option>
+                <option value='general improvement advice'>General Improvement Advice</option>
+                <option value='composition'>Composition</option>
+                <option value='music theory'>Music Theory</option>
+                <option value='college music essays'>College Music Essays</option>
+            </select><br> <br>
+            
+            <input type='submit' class="main-button-slider">
 
         </form>
     </div>
@@ -142,7 +157,8 @@
     <div class="graphic">
         <img src="assets/images/graphic.png">
     </div>
-  
+
+    
     <div class="left-image-decor"></div>
 
     <div class="right-image-decor"></div>
@@ -170,7 +186,6 @@
                     <div class="sub-footer">
                         <p>Copyright &copy; 2020 CreateCrescendos
 
-                        | Designed by <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>
                     </div>
                 </div>
             </div>
@@ -195,6 +210,7 @@
     <script src="assets/js/custom.js"></script>
 
     <!-- Functionality Code -->
+    <script src='assets/utils/mentors.js'></script>
     <script src="assets/js/studentForm.js"></script>
 </body>
 </html>

@@ -12,10 +12,18 @@ window.onload = () => {
         const nameText = document.createTextNode(mentor.name);
         const name = document.createElement('h1');
         name.appendChild(nameText);
+        
+        const gradeText = document.createTextNode(mentor.grade);
+        const grade = document.createElement('p2');
+        grade.appendChild(gradeText);
 
         const pic = document.createElement('img');
         pic.src = mentor.picSrc;
         pic.alt = mentor.name;
+        
+        const awardsText = document.createTextNode(mentor.awards);
+        const awards = document.createElement('p2');
+        awards.appendChild(awardsText);
 
         const bioText = document.createTextNode(mentor.bio);
         const bio = document.createElement('p');
@@ -24,7 +32,7 @@ window.onload = () => {
         const button = document.createElement('button');
         button.innerHTML = `Connect with ${mentor.name}`;
         button.addEventListener('click', () => {
-            window.location.href = './connecttomentor.html';
+            window.open('./connecttomentor.html');
         });
 
         let mentorCard = document.createElement('div');
@@ -32,7 +40,9 @@ window.onload = () => {
         mentorCard.className = 'mentorCard';
 
         mentorCard.appendChild(name);
+        mentorCard.appendChild(grade);
         mentorCard.appendChild(pic);
+        mentorCard.appendChild(awards);
         mentorCard.appendChild(bio);
         mentorCard.appendChild(button);
 
