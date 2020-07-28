@@ -32,7 +32,7 @@ window.onload = () => {
         const button = document.createElement('button');
         button.innerHTML = `Connect with ${mentor.name}`;
         button.addEventListener('click', () => {
-            window.location.href = './connecttomentor.html';
+            window.open('./connecttomentor.html');
         });
 
         let mentorCard = document.createElement('div');
